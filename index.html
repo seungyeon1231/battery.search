@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Battery Search</title>
+</head>
+<body style="display:flex; flex-direction:column; align-items:center; justify-content:center; height:100vh; font-family:sans-serif; margin:0;">
+
+    <h1 style="font-size:48px; color:green; margin-bottom:40px;">Battery Info</h1>
+
+    <form action="search.html" method="get" style="width: 100%; max-width: 500px;">
+        <input 
+            type="text" 
+            name="query" 
+            placeholder="배터리 정보를 검색해보세요" 
+            style="width:100%; padding:15px 20px; font-size:18px; border:1px solid #ccc; border-radius:30px;"
+        >
+    </form>
+
+    <div style="margin-top: 30px;">
+        <button 
+            onclick="document.forms[0].submit()" 
+            style="padding: 10px 20px; font-size: 16px; border: none; background-color: #f8f9fa; border-radius: 5px; cursor: pointer;">
+            Battery 검색
+        </button>
+    </div>
+
+</body>
+</html>

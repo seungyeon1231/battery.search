@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>검색 결과</title>
+</head>
+<body style="font-family:sans-serif; padding:40px; line-height:1.6;">
+
+    <h1 style="color:green;">🔍 배터리 검색 결과</h1>
+    <div id="result" style="margin-top:20px; font-size:18px;"></div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const query = params.get("query")?.trim().toLowerCase();
+        const resultDiv = document.getElementById("result");
+
+        if (!query) {
+            resultDiv.innerText = "검색어가 입력되지 않았습니다.";
+        } else if (query.includes("전고체")) {
+            resultDiv.innerHTML = `
+                <h2>🔋 전고체 배터리</h2>
+                <p>전고체 배터리는 액체 전해질 대신 고체 전해질을 사용하는 차세대 배터리입니다. 높은 안정성과 에너지 밀도로 전기차에 활용이 기대됩니다.</p>
+                <h3>📌 작동 원리</h3>
+                <p>리튬 이온이 고체 전해질을 통해 양극과 음극을 오가며 전기를 생성합니다.</p>
+                <img src="https://www.samsungsdi.com/upload/editor/2022/01/KakaoTalk_20220127_1.png"
+                     alt="전고체 배터리 구조"
+                     style="width:400px; margin-top:10px;">
+            `;
+        } else if (query.includes("리튬폴리머") || query.includes("리튬 폴리머")) {
+            resultDiv.innerHTML = `
+                <h2>🔋 리튬폴리머 배터리</h2>
+                <p>리튬폴리머 배터리는 젤 또는 고분자 형태의 전해질을 사용하여 얇고 다양한 형태로 만들 수 있어 모바일 기기에 적합합니다.</p>
+                <h3>📌 작동 원리</h3>
+                <p>젤 전해질을 통해 리튬 이온이 양극과 음극 사이를 이동하면서 전류를 생성합니다.</p>
+                <img src="https://i0.wp.com/www.electronics-lab.com/wp-content/uploads/2018/11/Lithium-Polymer-Battery.jpg"
+                     alt="리튬폴리머 배터리 구조"
+                     style="width:400px; margin-top:10px;">
+            `;
+        } else if (query.includes("lfp") || query.includes("리튬인산철") || query.includes("리튬 인산철")) {
+            resultDiv.innerHTML = `
+                <h2>🔋 LFP 배터리 (리튬인산철)</h2>
+                <p>LFP 배터리는 리튬인산철을 양극으로 사용하는 배터리로, 안정성과 긴 수명이 특징이며 전기차, ESS에 활용됩니다.</p>
+                <h3>📌 작동 원리</h3>
+                <p>리튬 이온이 인산철 양극과 흑연 음극 사이를 오가며 충·방전을 반복합니다.</p>
+                <img src="https://www.researchgate.net/publication/328167552/figure/fig1/AS:683583163674625@1539503061527/Schematic-diagram-of-the-LiFePO4LFP-battery.png"
+                     alt="LFP 배터리 구조"
+                     style="width:400px; margin-top:10px;">
+            `;
+        } else if (query.includes("리튬이온") || query.includes("리튬 이온")) {
+            resultDiv.innerHTML = `
+                <h2>🔋 리튬이온 배터리</h2>
+                <p>리튬이온 배터리는 가장 보편적인 이차전지로, 스마트폰부터 전기차까지 널리 사용됩니다.</p>
+                <h3>📌 작동 원리</h3>
+                <p>리튬 이온이 양극에서 음극으로 이동하며 에너지를 저장하고, 방전 시 역방향으로 이동하며 전기를 제공합니다.</p>
+                <img src="https://www.mdpi.com/energies/energies-14-06125/article_deploy/html/images/energies-14-06125-g001.png"
+                     alt="리튬이온 배터리 구조"
+                     style="width:400px; margin-top:10px;">
+            `;
+        } else {
+            resultDiv.innerHTML = `"${query}"에 대한 검색 결과가 없습니다.<br><br>예: 전고체, 리튬이온, 리튬폴리머, LFP`;
+        }
+    </script>
+
+</body>
+</html>
